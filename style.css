@@ -1,0 +1,53 @@
+.popup {
+    margin: 0 auto;
+    position: absolute;
+    left: 40%;
+    top: 25%;
+    transform: scale(0);
+    background-color: white;
+    z-index: 9;
+    transition: all 0.4s ease-in-out;
+}
+
+.popup-todo-inner {
+    width: 400px;
+}
+
+.todo-inner {
+    min-height: 300px;
+    max-height: 100%;
+
+    .todo-head {
+        height: 60px;
+        background-color: #429ECF;
+
+        div {
+            background-color: burlywood;
+            width: 120px;
+            height: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center !important;
+
+            p {
+                margin-top: 15px;
+            }
+
+            i {
+                position: absolute;
+                right: 5px;
+                top: 0;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+.active {
+    background-color: green;
+    color: white;
+}
+
+.popup-zoom {
+    transform: scale(1);
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do list</title>
+
+    <!-- Bootstrap icon cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Bootstrap css cdn -->
+    <link rel="stylesheet" href="./bootstrap.min.css">
+
+    <!-- main css link -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="popup border rounded-3">
+        <div class="popup-todo-inner rounded-3">
+            <div
+                class="popup-todo-head rounded-2 d-flex align-items-center justify-content-between px-3 py-2 gap-4 text-white w-100 text-black  bg-info">
+                <p class="text-black mb-0">Add a project</p>
+                <i class="bi bi-x text-black fs-3 close-popup" role="button"></i>
+            </div>
+
+            <div class="todo-body px-3 my-3">
+                <div class=" d-flex align-items-center gap-3">
+                    <p class="mb-0">Project Name: </p>
+                    <form action="">
+                        <input type="text" name="name" class="form-control">
+                    </form>
+                </div>
+
+                <div class="border-top mt-3 py-3">
+                    <button class="addNewTask btn btn-secondary px-3 ms-auto d-block">Add new project</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="todo border border-2 border-info w-75 mx-auto p-5 rounded-4">
+        <h2 class="text-center my-2">To do list</h2>
+
+        <button class="addProject btn btn-secondary ms-auto d-block">Add Project</button>
+
+        <div class="todo-inner border my-3 rounded-3">
+            <div class="todo-head w-100 rounded-2 d-flex align-items-center px-3 gap-4">
+                <div class="rounded-3 position-relative" role="button">
+                    <p class="text-center">Default</p>
+                    <i class="bi bi-x delete-heading"></i>
+                </div>
+            </div>
+
+            <div class="todo-body mx-3"></div>
+
+        </div>
+
+        <button class="addTask btn btn-secondary ms-auto d-block">Add Task</button>
+    </div>
+
+    <!-- Jquery cdn -->
+    <script src="./jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // popup
+            $(".addProject").click(function () {
+                $(".popup").addClass("popup-zoom");
+            });
+
+            // close popup
+            $(".close-popup").click(function () {
+                $(".popup").removeClass("popup-zoom");
+            });
+
+            // add project heading 
+            $(".addNewTask").click(function () {
+                var input = $("input").val();
+                var clone = $(".todo-head div:first").clone();
+                clone.find("p").text(input);
+                $(".todo-head").append(clone);
+            });
+
+            // add project active class 
+            $(".todo-head div").click(function () {
+                $(".todo-head div").removeClass('active');
+                $(this).addClass("active");
+            });
+        });
+    </script>
+</body>
+
+</html>
